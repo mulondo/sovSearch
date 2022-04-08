@@ -1,12 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef, RefObject } from 'react'
 import FilmsContext from '../context/FilmsContext'
 import styled from 'styled-components'
 import Card from '../components/Card'
+import axios from "axios";
 
 function Films() {
-  const { films } = useContext(FilmsContext) as any
+  const { films, filteredFilms, setFilteredFilms } = useContext(FilmsContext) as any
+  const searchInput = useRef<HTMLInputElement>(null)
+  const handleOnchange = () => {
+    let searchText = searchInput.current?.value
+    axios.get(`https://swapi.dev/api/films/?search=${searchText}`).then(function (response) {
+      setFilteredFilms(response.data.results)
+    })
+    console.log(filteredFilms)
+  }
   const Button = styled.button`
-    /* Adapt the colors based on primary prop */
     background: ${(props: any) => (props.primary ? 'palevioletred' : 'white')};
     color: ${(props: any) => (props.primary ? 'white' : 'palevioletred')};
 
@@ -24,20 +32,10 @@ function Films() {
     flex-wrap: wrap;
   `
 
-  // const Card = styled.div`
-  //   margin: 10px;
-  //   border: 1px solid black;
-  //   padding:2rem;
-  //   height: 100px;
-  //   width: 300px;
-  //   text-align: center;
-  //   cursor: pointer
-
-  // `
   return (
     <div>
       <div className='search-section'>
-        <input type='text' placeholder='Search' />
+        <input type='text' ref={searchInput} placeholder='Search' onChange={handleOnchange}/>
         <Button>Search</Button>
         <Button>History</Button>
         <Films>
