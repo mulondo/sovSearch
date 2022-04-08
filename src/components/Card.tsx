@@ -1,4 +1,7 @@
 import React, { useContext } from 'react'
+import {
+    Link
+} from "react-router-dom";
 import styled from 'styled-components'
 import FilmsContext from '../context/FilmsContext'
 
@@ -15,6 +18,7 @@ function Card({ film }: any) {
     return (
         <div>
             <Section>{ film.title }</Section>
+            <Link to={'/single-page'}>See more</Link>
         </div>
     )
 }
