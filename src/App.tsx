@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Link,
+} from "react-router-dom";
 import './App.css'
 import Films from './pages/Films'
 import FilmsContext from './context/FilmsContext'
 import axios from 'axios'
+import SingleFilm from './pages/SingleFilm'
 
 function App() {
   const [films, setFilms] = useState<string[]>([])
@@ -14,9 +21,16 @@ function App() {
   }, [])
   return (
       <div className='App'>
-        <FilmsContext.Provider value={{ films }}>
-          <Films />
-        </FilmsContext.Provider>
+          <FilmsContext.Provider value={{ films }}>
+              <BrowserRouter>
+                  <Routes>
+                      <Route path="/" element={<Films />} />
+                      <Route path="single-page" element={<SingleFilm />} />
+                  </Routes>
+              </BrowserRouter>
+          </FilmsContext.Provider>
+
+
       </div>
   )
 }
