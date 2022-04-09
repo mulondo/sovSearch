@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import FilmsContext from '../context/FilmsContext'
 import styled from 'styled-components'
 import Card from '../components/Card'
@@ -29,7 +29,7 @@ function Films() {
       })
   })
 
-  let newFirms: [] = filteredFilms.length === 0? films: filteredFilms
+  let currentFilms: [] = filteredFilms.length === 0? films: filteredFilms
 
   const Button = styled.button`
     background: ${(props: any) => (props.primary ? 'palevioletred' : 'white')};
@@ -59,7 +59,7 @@ function Films() {
           {isFilmFound? '': 'The Film is not Found'}
         </div>
         <Films>
-          {newFirms.map((film: any, i: number) => <Card key={film.episode_id} film={film} />)}
+          {currentFilms.map((film: any, i: number) => <Card key={film.episode_id} film={film} />)}
         </Films>
       </div>
     </div>
