@@ -7,6 +7,7 @@ import FilmsContext from '../context/FilmsContext'
 
 function Card({ film }: any) {
     const Section= styled.div`
+      display: block;
       margin: 10px;
       border: 1px solid black;
       padding:2rem;
@@ -17,8 +18,10 @@ function Card({ film }: any) {
 
     return (
         <div>
-            <Section>{ film.title }</Section>
-            <Link to={'/single-page'}>See more</Link>
+            <Link to={'/single-page'}>
+                <Section>{film.title}</Section>
+            </Link>
+
         </div>
     )
 }
