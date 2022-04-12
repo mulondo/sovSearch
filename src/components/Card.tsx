@@ -1,9 +1,6 @@
-import React, { useContext } from 'react'
-import {
-    Link
-} from "react-router-dom";
+import React from 'react'
+import { Link } from "react-router-dom";
 import styled from 'styled-components'
-import FilmsContext from '../context/FilmsContext'
 
 function Card({ film }: any) {
     const Section= styled.div`
@@ -14,11 +11,15 @@ function Card({ film }: any) {
       height: 100px;
       width: 300px;
       text-align: center;
-      cursor: pointer`
-
+      cursor: pointer;
+      &:hover{
+        width: 310px;
+        transition: 0.3s;
+    }
+`
     return (
         <div>
-            <Link to={'/single-page'}>
+            <Link to={`/film/${film.episode_id}`}>
                 <Section>{film.title}</Section>
             </Link>
 
