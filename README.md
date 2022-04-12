@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Getting started with Sov films
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Click here for a demo [Sov films](sov-films.netlify.app).
 
 ## Available Scripts
 
