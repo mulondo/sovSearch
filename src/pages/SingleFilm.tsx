@@ -9,10 +9,12 @@ export default function SingleFilm() {
     const selectedParams = params.episode_id? parseInt(params.episode_id): 0
     const selectedFilm = films.filter((film:any) => film.episode_id ===  selectedParams)
     const [film] = selectedFilm
-    const viewedFilms: any = []
-    viewedFilms.push(film)
 
+
+    // @ts-ignore
     useEffect(() => {
+        const viewedFilms: any = []
+        viewedFilms.push(film)
         if(localStorage.getItem("searchedFilms") !== null) {
             const storedHistory = JSON.parse(localStorage.getItem("searchedFilms") || '[]')
             storedHistory.push(film)
@@ -22,7 +24,7 @@ export default function SingleFilm() {
         else {
             localStorage.setItem("searchedFilms", JSON.stringify(viewedFilms))
         }
-    }, [])
+    }, [film])
 
     return (
         <div className={"mt-5"}>
