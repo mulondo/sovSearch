@@ -47,9 +47,9 @@ function Films() {
   return (
     <div>
       <div className='search-section'>
-        <h1 className={"text-cyan-900 text-7xl mt-5"}>Sov Films</h1>
+        <h1 className={"text-cyan-900 text-7xl mt-56 mb-5"}>Sov Films</h1>
         <input
-            className={"mt-56 mb-10 border-2 rounded-full outline-none w-6/12 h-12 text-lg px-4"}
+            className={"mb-10 border-2 rounded-full outline-none w-6/12 h-12 text-lg px-4"}
             type='text'
             placeholder='Search for films'
             onChange={handleOnchange}
