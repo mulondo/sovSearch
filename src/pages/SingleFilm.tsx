@@ -12,6 +12,7 @@ export default function SingleFilm() {
     const viewedFilms: any = []
     viewedFilms.push(film)
 
+    // @ts-ignore
     useEffect(() => {
         if(localStorage.getItem("searchedFilms") !== null) {
             const storedHistory = JSON.parse(localStorage.getItem("searchedFilms") || '[]')
