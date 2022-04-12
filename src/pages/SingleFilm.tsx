@@ -10,8 +10,6 @@ export default function SingleFilm() {
     const selectedFilm = films.filter((film:any) => film.episode_id ===  selectedParams)
     const [film] = selectedFilm
 
-
-    // @ts-ignore
     useEffect(() => {
         const viewedFilms: any = []
         viewedFilms.push(film)
