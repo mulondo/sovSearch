@@ -1,6 +1,6 @@
 # Getting started with Sov films
 
-Click here for a demo [Sov films](sov-films.netlify.app).
+Click here for a demo [Sov films](https://sov-films.netlify.app/).
 
 ## Available Scripts
 
