@@ -22,7 +22,7 @@ export default function SingleFilm() {
         else {
             localStorage.setItem("searchedFilms", JSON.stringify(viewedFilms))
         }
-    }, [film])
+    }, [viewedFilms])
 
     return (
         <div className={"mt-5"}>
