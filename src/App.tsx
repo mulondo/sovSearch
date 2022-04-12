@@ -11,25 +11,26 @@ import axios from 'axios'
 import SingleFilm from './pages/SingleFilm'
 
 function App() {
-  const [films, setFilms] = useState<string[]>([])
+    const [films, setFilms] = useState<string[]>([])
+    const [filteredFilms, setFilteredFilms] = useState<string[]>([])
+    const [searchedFilms, setSearchedFilms] = useState<[]>([])
+
+
   useEffect(() => {
     axios.get('https://swapi.dev/api/films').then(function (response) {
-      // console.log(response.data.results)
       setFilms(response.data.results)
     })
   }, [])
   return (
       <div className='App'>
-          <FilmsContext.Provider value={{ films }}>
+          <FilmsContext.Provider value={{ films, filteredFilms, setFilteredFilms, searchedFilms, setSearchedFilms}}>
               <BrowserRouter>
                   <Routes>
                       <Route path="/" element={<Films />} />
-                      <Route path="single-page" element={<SingleFilm />} />
+                      <Route path="/film/:episode_id" element={<SingleFilm />} />
                   </Routes>
               </BrowserRouter>
           </FilmsContext.Provider>
-
-
       </div>
   )
 }
